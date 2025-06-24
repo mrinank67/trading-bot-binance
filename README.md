@@ -1,112 +1,87 @@
-Simplified Trading Bot for Binance Futures Testnet
-This project implements a Python-based trading bot for the Binance Futures Testnet (USDT-M) as part of the Junior Python Developer application task. The bot supports market, limit, and stop-limit (bonus feature) orders, with a command-line interface (CLI), comprehensive logging, and error handling.
-Features
+# Simplified Trading Bot for Binance Futures Testnet
 
-Order Types: Place market, limit, and stop-limit orders on Binance Futures Testnet.
-Order Sides: Supports both BUY and SELL sides.
-API Integration: Uses the official python-binance library to interact with the Binance API.
-CLI Interface: Accepts and validates user inputs via a command-line interface.
-Logging: Logs all API requests, responses, and errors to logs/bot.log.
-Error Handling: Robust handling of API errors and input validation.
-Bonus Feature: Implements stop-limit orders for advanced trading functionality.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-Project Structure
+This project implements a **Python-based trading bot** for the **Binance Futures Testnet (USDT-M)** as part of the Junior Python Developer application task. The bot supports **market**, **limit**, and **stop-limit** (bonus feature) orders, with a command-line interface (CLI), comprehensive logging, and robust error handling.
+
+## Features
+
+- **Order Types**: Place **market**, **limit**, and **stop-limit** orders on Binance Futures Testnet.
+- **Order Sides**: Supports both **BUY** and **SELL** sides.
+- **API Integration**: Uses the official [python-binance](https://python-binance.readthedocs.io/) library to interact with the Binance API.
+- **CLI Interface**: Accepts and validates user inputs via a command-line interface.
+- **Logging**: Logs all API requests, responses, and errors to `logs/bot.log`.
+- **Error Handling**: Robust handling of API errors and input validation.
+- **Bonus Feature**: Implements **stop-limit** orders for advanced trading functionality.
+
+## Project Structure
+
+```
 trading_bot/
 ├── trading_bot.py       # Main bot logic
 ├── requirements.txt     # Project dependencies
 ├── logs/               # Log files
 │   └── bot.log
 └── README.md           # Project documentation
+```
 
-Prerequisites
+## Prerequisites
 
-Python 3.8+
-Binance Futures Testnet Account:
-Register at https://testnet.binancefuture.com.
-Generate API Key and API Secret from the Testnet dashboard.
+- **Python 3.8+**: Ensure Python is installed ([download here](https://www.python.org/downloads/)).
+- **Binance Futures Testnet Account**:
+  - Register at [Binance Futures Testnet](https://testnet.binancefuture.com).
+  - Generate an **API Key** and **API Secret** from the Testnet dashboard.
+- **Dependencies**:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
+## Setup Instructions
 
-Dependencies:pip install -r requirements.txt
+1. **Obtain the Project Files**:
+   - Download or copy the project files to a local directory.
+   - Navigate to the project directory:
+     ```bash
+     cd trading_bot
+     ```
+2. **Install Dependencies**:
+   - Install the required Python library:
+     ```bash
+     pip install python-binance==1.0.19
+     ```
+3. **Configure Logging**:
+   - Ensure the `logs/` directory exists. If not, create it:
+     ```bash
+     mkdir logs
+     ```
+4. **Obtain API Credentials**:
+   - Log in to the [Binance Futures Testnet](https://testnet.binancefuture.com) and generate an API Key and Secret.
+   - Keep these credentials secure and do not include them in shared files.
 
+## Usage
 
-
-Setup Instructions
-
-Obtain the Project Files:
-Download or copy the project files to a local directory.
-Navigate to the project directory:cd trading_bot
-
-
-
-
-Install Dependencies:
-Install the required Python library:pip install python-binance
-
-
-
-
-Configure Logging:
-Ensure the logs/ directory exists. If not, create it:mkdir logs
-
-
-
-
-Obtain API Credentials:
-Log in to the Binance Futures Testnet and generate an API Key and Secret.
-Keep these credentials secure and do not include them in shared files.
-
-
-
-Usage
 Run the bot using the command-line interface with the following syntax:
+
+```bash
 python trading_bot.py --api-key <API_KEY> --api-secret <API_SECRET> --symbol <SYMBOL> --order-type <ORDER_TYPE> --side <SIDE> --quantity <QUANTITY> [--price <PRICE>] [--stop-price <STOP_PRICE>]
+```
 
-Arguments
+### Arguments
 
---api-key: Binance API Key (required).
---api-secret: Binance API Secret (required).
---symbol: Trading pair (e.g., BTCUSDT, default: BTCUSDT).
---order-type: Order type (market, limit, stop-limit, default: market).
---side: Order side (BUY or SELL, required).
---quantity: Order quantity (e.g., 0.001, required).
---price: Price for limit or stop-limit orders (optional).
---stop-price: Stop price for stop-limit orders (optional).
+| Argument       | Description                                   | Required | Default      |
+|----------------|-----------------------------------------------|----------|--------------|
+| `--api-key`    | Binance API Key                              | Yes      | -            |
+| `--api-secret` | Binance API Secret                           | Yes      | -            |
+| `--symbol`     | Trading pair (e.g., `BTCUSDT`)               | No       | `BTCUSDT`    |
+| `--order-type` | Order type (`market`, `limit`, `stop-limit`) | No       | `market`     |
+| `--side`       | Order side (`BUY` or `SELL`)                 | Yes      | -            |
+| `--quantity`   | Order quantity (e.g., `0.001`)               | Yes      | -            |
+| `--price`      | Price for limit/stop-limit orders            | No       | -            |
+| `--stop-price` | Stop price for stop-limit orders             | No       | -            |
 
-Examples
+### Examples
 
-Place a Market Order:
-python trading_bot.py --api-key <your_api_key> --api-secret <your_api_secret> --symbol BTCUSDT --order-type market --side BUY --quantity 0.001
-
-Output: Order details and execution status.
-
-Place a Limit Order:
-python trading_bot.py --api-key <your_api_key> --api-secret <your_api_secret> --symbol BTCUSDT --order-type limit --side BUY --quantity 0.001 --price 60000
-
-Output: Order details and execution status.
-
-Place a Stop-Limit Order (Bonus Feature):
-python trading_bot.py --api-key <your_api_key> --api-secret <your_api_secret> --symbol BTCUSDT --order-type stop-limit --side BUY --quantity 0.001 --price 60000 --stop-price 59000
-
-Output: Order details and execution status.
-
-
-Log Files
-
-All API interactions and errors are logged to logs/bot.log.
-Example log entry:2025-06-24 19:45:00,123 - INFO - Initialized Binance client in testnet mode: True
-2025-06-24 19:45:01,456 - INFO - Valid symbol: BTCUSDT
-2025-06-24 19:45:02,789 - INFO - Market order placed: {'orderId': 123456, 'symbol': 'BTCUSDT', ...}
-
-
-
-Testing
-
-Test the bot on the Binance Futures Testnet with small quantities (e.g., 0.001 BTCUSDT).
-Verify that logs capture all API interactions and errors.
-Ensure the CLI validates inputs (e.g., missing price for limit orders).
-
-Notes
-
-Security: Do not hardcode API credentials or include them in shared files.
-Error Handling: The bot handles API errors and validates inputs. Check logs/bot.log for details on failures.
-Extensibility: The code is structured for
+1. **Place a Market Order**:
+   ```bash
+   python trading_bot.py --api-key <your_api_key> --api-secret <your_api_secret> --symbol BTCUSDT --order-type market --
