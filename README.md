@@ -32,11 +32,17 @@ Dependencies:pip install -r requirements.txt
 
 Setup Instructions
 
-Clone the Repository:git clone <repository-url>
-cd trading_bot
+Obtain the Project Files:
+Download or copy the project files to a local directory.
+Navigate to the project directory:cd trading_bot
 
 
-Install Dependencies:pip install python-binance
+
+
+Install Dependencies:
+Install the required Python library:pip install python-binance
+
+
 
 
 Configure Logging:
@@ -47,7 +53,7 @@ Ensure the logs/ directory exists. If not, create it:mkdir logs
 
 Obtain API Credentials:
 Log in to the Binance Futures Testnet and generate an API Key and Secret.
-Keep these credentials secure and do not commit them to version control.
+Keep these credentials secure and do not include them in shared files.
 
 
 
@@ -101,6 +107,6 @@ Ensure the CLI validates inputs (e.g., missing price for limit orders).
 
 Notes
 
-Security: Do not hardcode API credentials or commit them to GitHub.
+Security: Do not hardcode API credentials or include them in shared files.
 Error Handling: The bot handles API errors and validates inputs. Check logs/bot.log for details on failures.
-Extensibility: The code is structured for reusability, with potential to add more order types (e.g., OCO) or a graphical UI.
+Extensibility: The code is structured for
