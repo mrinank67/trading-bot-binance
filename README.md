@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-This project implements a **Python-based trading bot** for the **Binance Futures Testnet (USDT-M)** as part of the Junior Python Developer application task. The bot supports **market**, **limit**, and **stop-limit** (bonus feature) orders, with a command-line interface (CLI), comprehensive logging, and robust error handling.
+This project implements a **Python-based trading bot** for the **Binance Futures Testnet (USDT-M)**. The bot supports **market**, **limit**, and **stop-limit** (bonus feature) orders, with a command-line interface (CLI), comprehensive logging, and robust error handling.
 
 ## Features
 
